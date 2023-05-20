@@ -1,0 +1,14 @@
+$font-sizes: ("h1": 48px, "h2": 40px, "h3": 32px, "h4": 24px, "h5": 20px, "xl": 18px, "l": 16px, "m": 14px, 's': 12px, 'xs': 10px);
+$font-weights: ("normal": 400, "medium": 500, "bold": 800, "black": 900);
+
+@each $name, $size in $font-sizes {
+  .text-#{$name} {
+    font-size: $size;
+  }
+}
+
+@each $name, $weight in $font-weights {
+  .text-#{$name} {
+    font-weight: $weight;
+  }
+}
