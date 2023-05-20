@@ -1,6 +1,7 @@
+import BurgerMenuButton from 'features/burger-menu-button';
 import { FC } from 'react';
 import {
-  Button, Col, Container, Row,
+  Col, Container, Row,
 } from 'react-bootstrap';
 
 interface HeaderProps {
@@ -12,7 +13,7 @@ const Header: FC<HeaderProps> = () => (
     <Container>
       <Row className='bg-secondary'>
         <Col className='d-flex flex-row-reverse'>
-          <Button variant='primary' size='lg'>Menu</Button>
+          <BurgerMenuButton />
         </Col>
       </Row>
     </Container>
