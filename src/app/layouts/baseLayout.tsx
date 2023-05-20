@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
+import Header from 'widgets/header';
 
 interface LayoutProps {
 
@@ -7,7 +8,7 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = () => (
   <>
-    {/* <Header /> */}
+    <Header />
     <main>
       <Outlet />
     </main>

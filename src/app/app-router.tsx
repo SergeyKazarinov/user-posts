@@ -1,12 +1,12 @@
-import Loader from 'UI';
 import { FC, Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Layout from 'widgets';
+import Loader from 'shared/ui';
+import Layout from './layouts/baseLayout';
 
-const MainPage = lazy(() => import('pages/main-page/main-page'));
-const PageNotFound = lazy(() => import('pages/page-note-found/page-note-found'));
+const MainPage = lazy(() => import('pages/main-page'));
+const PageNotFound = lazy(() => import('pages/page-note-found'));
 
-const Routing: FC = () => (
+const AppRouter: FC = () => (
   <Suspense fallback={<Loader />}>
     <Routes>
       <Route element={<Layout />}>
@@ -17,4 +17,4 @@ const Routing: FC = () => (
   </Suspense>
 );
 
-export default Routing;
+export default AppRouter;
