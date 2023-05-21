@@ -22,7 +22,8 @@
     "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
     "semi": ["error", "always", {"omitLastInOneLineBlock": true}],
     "indent": ["error", 2, { "SwitchCase": 1 }],
-    "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]}]
+    "default-param-last": "off",
+    "@typescript-eslint/default-param-last": "off"
   },
   "settings": {
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],

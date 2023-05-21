@@ -1,6 +1,6 @@
 import { FC, Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Loader from 'shared/ui';
+import { Loader } from 'shared';
 import Layout from './layouts/baseLayout';
 
 const MainPage = lazy(() => import('pages/main-page'));
