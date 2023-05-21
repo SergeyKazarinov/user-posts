@@ -1,7 +1,9 @@
 import { useAppDispatch, useAppSelector } from 'app/store/app-store';
 import { toggleBurgerMenuAction } from 'entities';
 import { FC } from 'react';
-import { Nav, Offcanvas } from 'react-bootstrap';
+import {
+  Col, Container, Image, Nav, Offcanvas, Row,
+} from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 
 interface BurgerMenuProps {
@@ -22,9 +24,20 @@ const BurgerMenu: FC<BurgerMenuProps> = () => {
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Menu</Offcanvas.Title>
       </Offcanvas.Header>
-      <Offcanvas.Body>
-        Сергей
-        kazarionv092@gmail.com
+      <Offcanvas.Body className='flex-column text-center'>
+        <Container className='m-2'>
+          <Row>
+            <Col>
+              <Image src='../../../public/placeholder.jpg' className='w-50' roundedCircle />
+            </Col>
+          </Row>
+          <Row className='m-2'>
+            <Col>Сергей</Col>
+          </Row>
+          <Row>
+            <Col>kazarinov092@gmail.com</Col>
+          </Row>
+        </Container>
         <Nav activeKey={location.pathname} variant='pills' className="flex-column">
           <Nav.Link href="/" eventKey="/">Список постов</Nav.Link>
           <Nav.Link href='/about-me' eventKey="/about-me">Обо мне</Nav.Link>
