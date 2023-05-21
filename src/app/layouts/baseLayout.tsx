@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from 'widgets/header';
+import { BurgerMenu, Header } from 'widgets';
 
 interface LayoutProps {
 
@@ -9,6 +9,7 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = () => (
   <>
     <Header />
+    <BurgerMenu />
     <main>
       <Outlet />
     </main>

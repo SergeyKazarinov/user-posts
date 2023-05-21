@@ -11,8 +11,8 @@ const AppRouter: FC = () => (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<MainPage />} />
+        <Route path="/about-me" element={<PageNotFound />} />
       </Route>
-      <Route path="*" element={<PageNotFound />} />
     </Routes>
   </Suspense>
 );
