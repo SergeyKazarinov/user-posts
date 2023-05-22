@@ -24,8 +24,8 @@ const BurgerMenu: FC<BurgerMenuProps> = () => {
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Menu</Offcanvas.Title>
       </Offcanvas.Header>
-      <Offcanvas.Body className='flex-column text-center'>
-        <Container className='m-2'>
+      <Offcanvas.Body className='flex-column'>
+        <Container className='m-2  text-center'>
           <Row>
             <Col>
               <Image src='../../../public/placeholder.jpg' className='w-50' roundedCircle />
