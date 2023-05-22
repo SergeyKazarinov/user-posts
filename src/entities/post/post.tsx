@@ -1,5 +1,7 @@
 import { FC } from 'react';
-import { Card } from 'react-bootstrap';
+import {
+  Card, Col, Container, Image, Row,
+} from 'react-bootstrap';
 import { IPost } from 'types/post';
 
 interface PostProps {
@@ -7,10 +9,20 @@ interface PostProps {
 }
 
 const Post: FC<PostProps> = ({ item }) => (
-  <Card>
-    <Card.Title>{item.title}</Card.Title>
-    <Card.Text>{item.body}</Card.Text>
-  </Card>
+  <Container >
+    <Row className='mt-4'>
+      <Col md={1} xs={1}>
+        <Image src='../../../public/placeholder.jpg' className='w-100' roundedCircle />
+      </Col>
+      <Col>
+        <Card>
+          <Card.Title>{item.title}</Card.Title>
+          <Card.Text>{item.body}</Card.Text>
+        </Card>
+      </Col>
+    </Row>
+
+  </Container>
 );
 
 export default Post;
