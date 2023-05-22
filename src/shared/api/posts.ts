@@ -1,8 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
 import { GET_COMMENTS, GET_POSTS } from 'shared';
+import delay from 'shared/lib';
 
 export const getPosts = async () => {
   try {
+    await delay(1000);
     const res: AxiosResponse = await axios.get(GET_POSTS);
     return res.data;
   } catch (error: any) {
