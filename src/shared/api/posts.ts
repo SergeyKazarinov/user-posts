@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
-import { GET_COMMENTS, GET_POSTS } from 'shared';
+import { BASE_URL } from 'shared';
 
 export const getPosts = async () => {
   try {
-    const res: AxiosResponse = await axios.get(GET_POSTS);
+    const res: AxiosResponse = await axios.get(`${BASE_URL}/posts`);
     return res.data;
   } catch (error: any) {
     if (error.response) {
@@ -15,9 +15,9 @@ export const getPosts = async () => {
   }
 };
 
-export const getComments = async () => {
+export const getCommentsByPostId = async (postId: string) => {
   try {
-    const res: AxiosResponse = await axios.get(GET_COMMENTS);
+    const res: AxiosResponse = await axios.get(`${BASE_URL}/posts/${postId}/comments`);
     return res.data();
   } catch (error: any) {
     if (error.response) {
