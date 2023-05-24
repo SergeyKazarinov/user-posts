@@ -1,21 +1,20 @@
-import { Post } from 'entities';
-import { FC, useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from 'app/store/app-store';
+import { Post, getPostsActionCreator } from 'entities';
+import { FC, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
-import { getPosts } from 'shared/api/posts';
 import delay from 'shared/lib';
-import { IPost } from 'types/post';
 
 interface PostListProps {
 
 }
 
 const PostList: FC<PostListProps> = () => {
-  const [posts, setPosts] = useState<IPost[]>([]);
+  const dispatch = useAppDispatch();
+  const posts = useAppSelector((store) => store.setPostsReducer.posts);
 
   const handelGetPosts = async () => {
     await delay(1000);
-    const data = await getPosts();
-    setPosts(data);
+    dispatch(getPostsActionCreator());
   };
 
   useEffect(() => {
