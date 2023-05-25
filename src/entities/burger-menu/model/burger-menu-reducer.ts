@@ -1,11 +1,15 @@
 import { TOGGLE_BURGER_MENU } from 'shared';
 
-const initialState = {
+interface IInitialState {
+  isBurger: boolean
+}
+
+const initialState: IInitialState = {
   isBurger: false,
 };
 
-const toggleBurgerMenuReducer = (
-  state: { isBurger: boolean } = initialState,
+export const toggleBurgerMenuReducer = (
+  state = initialState,
   { type }: { type: string },
 ) => {
   switch (type) {
@@ -13,5 +17,3 @@ const toggleBurgerMenuReducer = (
     default: return state;
   }
 };
-
-export default toggleBurgerMenuReducer;

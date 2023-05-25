@@ -1,4 +1,4 @@
-import { toggleBurgerMenuReducer, setPostsReducer } from 'entities';
+import { toggleBurgerMenuReducer, postsReducer, commentReducer } from 'entities';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
@@ -9,7 +9,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
   toggleBurgerMenuReducer,
-  setPostsReducer,
+  postsReducer,
+  commentReducer,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));

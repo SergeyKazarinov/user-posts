@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/app-store';
 import { Post, getPostsActionCreator } from 'entities';
+import CommentButton from 'features/get-comment-by-post-id';
 import { FC, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import delay from 'shared/lib';
@@ -10,7 +11,8 @@ interface PostListProps {
 
 const PostList: FC<PostListProps> = () => {
   const dispatch = useAppDispatch();
-  const posts = useAppSelector((store) => store.setPostsReducer.posts);
+  const posts = useAppSelector((store) => store.postsReducer.posts);
+  const comments = useAppSelector((store) => store.commentReducer.comments);
 
   const handelGetPosts = async () => {
     await delay(1000);
@@ -22,7 +24,11 @@ const PostList: FC<PostListProps> = () => {
   }, []);
 
   const cards = posts.map((item) => (
-    <Post key={item.id} item={item}/>
+    <Post
+      key={item.id}
+      item={item}
+      commentButton={<CommentButton postId={item.id} comments={comments}/>}
+    />
   ));
 
   return (

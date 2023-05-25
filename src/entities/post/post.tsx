@@ -6,9 +6,10 @@ import { IPost } from 'types/post';
 
 interface PostProps {
   item: IPost
+  commentButton?: React.ReactNode
 }
 
-const Post: FC<PostProps> = ({ item }) => (
+const Post: FC<PostProps> = ({ item, commentButton }) => (
   <Container >
     <Card className='mt-4'>
       <Row>
@@ -18,6 +19,7 @@ const Post: FC<PostProps> = ({ item }) => (
         <Col>
           <Card.Title>{item.title}</Card.Title>
           <Card.Text>{item.body}</Card.Text>
+          {commentButton}
         </Col>
       </Row>
     </Card>

@@ -1,12 +1,18 @@
-import { SET_POSTS_ACTIONS } from 'shared';
-import { IPost } from 'types/post';
+import { SET_COMMENT_ACTIONS, SET_POSTS_ACTIONS } from 'shared';
+import { IComments, IPost } from 'types/post';
 
-const initialState = {
+interface IInitialState {
+  posts: IPost[];
+  comments: IComments[]
+}
+
+const initialState: IInitialState = {
   posts: [],
+  comments: [],
 };
 
-const setPostsReducer = (
-  state: { posts: IPost[] } = initialState,
+export const postsReducer = (
+  state = initialState,
   { type, payload }: { type: string, payload: IPost[] },
 ) => {
   switch (type) {
@@ -15,4 +21,12 @@ const setPostsReducer = (
   }
 };
 
-export default setPostsReducer;
+export const commentReducer = (
+  state = initialState,
+  { type, payload }: { type: string, payload: IComments[] },
+) => {
+  switch (type) {
+    case SET_COMMENT_ACTIONS: return { ...state, comments: payload };
+    default: return state;
+  }
+};
