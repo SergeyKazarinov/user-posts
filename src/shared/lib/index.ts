@@ -1,3 +1,1 @@
-import delay from './delay';
-
-export default delay;
+export { delay } from './delay';

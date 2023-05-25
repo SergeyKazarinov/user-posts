@@ -1,5 +1,3 @@
-const delay = async (ms = 500) => new Promise((resolve) => {
+export const delay = async (ms = 500) => new Promise((resolve) => {
   setTimeout(resolve, ms);
 });
-
-export default delay;

@@ -1,8 +1,8 @@
-import { toggleBurgerMenuReducer, postsReducer, commentReducer } from 'entities';
+import { postsReducer, toggleBurgerMenuReducer, commentReducer } from 'entities';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import rootSaga from './rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();

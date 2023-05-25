@@ -1,3 +1,1 @@
-import BurgerMenuButton from './ui';
-
-export default BurgerMenuButton;
+export { default as BurgerMenuButton } from './ui';

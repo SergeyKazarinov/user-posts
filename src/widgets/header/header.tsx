@@ -1,4 +1,4 @@
-import BurgerMenuButton from 'features/burger-menu-button';
+import { BurgerMenuButton } from 'features/burger-menu-button';
 import { FC } from 'react';
 import {
   Col, Container, Row,

@@ -1,3 +1,3 @@
-export { default as Header } from './header';
-export { default as BurgerMenu } from './burger-menu';
-export { default as PostList } from './post-list';
+export * from './header';
+export * from './burger-menu';
+export * from './post-list';
