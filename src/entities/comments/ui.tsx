@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Accordion, Card } from 'react-bootstrap';
+import { Comment } from 'shared';
 import { IComments } from 'types/post';
 
 interface CommentButtonProps {
@@ -9,12 +10,12 @@ interface CommentButtonProps {
 }
 
 const CommentButton: FC<CommentButtonProps> = ({ postId, comments, commentButton }) => {
-  const dataByPostId = comments.filter((item) => item.postId === postId);
-  const data = dataByPostId.map((item) => <li key={item.id}>{item.body}</li>);
+  const commentById = comments.filter((item) => item.postId === postId);
+  const data = commentById.map((item) => <Comment key={item.id} comment={item}/>);
 
   return (
     <Accordion>
-      <Card>
+      <Card className='border-0'>
         <Card.Header className='bg-white border-0 btn-outline-dark '>
           {commentButton}
         </Card.Header>
