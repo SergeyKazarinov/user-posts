@@ -1,6 +1,7 @@
 import {
   GET_ALL_COMMENT_ACTIONS,
   GET_POSTS_ACTIONS,
+  SEARCH_POSTS_ACTIONS,
   SET_PAGINATION_NUMBER,
   SET_PAGINATION_POST,
   SET_POSTS_ACTIONS,
@@ -27,4 +28,9 @@ export const setPaginationPostsActionCreator = () => ({
 export const setPaginationNumberActionCreator = (number: number) => ({
   type: SET_PAGINATION_NUMBER,
   payload: number,
+});
+
+export const searchPostActionCreator = (value: string) => ({
+  type: SEARCH_POSTS_ACTIONS,
+  payload: value,
 });

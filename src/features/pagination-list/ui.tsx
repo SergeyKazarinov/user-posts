@@ -16,7 +16,7 @@ const PaginationList: FC<PaginationProps> = ({ array, activeNumber }) => {
     dispatch(setPaginationNumberActionCreator(number));
   };
 
-  const numberPagination = array.length / 10;
+  const numberPagination = Math.ceil(array.length / 10);
 
   const items = [];
   for (let number = 1; number <= numberPagination; number += 1) {

@@ -1,22 +1,21 @@
 import { useAppDispatch, useAppSelector } from 'app/store/app-store';
 import {
-  Post, getPostsActionCreator, setPaginationPostsActionCreator,
+  Post,
+  getPostsActionCreator,
+  setPaginationPostsActionCreator,
 } from 'entities';
 import { CommentButton } from 'entities/comments';
 import { PaginationList } from 'features/pagination-list';
+import { SearchPosts } from 'features/search-posts';
 import { ToggleCommentButton } from 'features/toggle-comment-button';
-
 import { FC, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
-import { delay } from 'shared/lib';
+import { delay } from 'shared';
 
-interface PostListProps {
-
-}
-
-const PostList: FC<PostListProps> = () => {
+const PostList: FC = () => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector((store) => store.postsReducer.posts);
+  const searchedPosts = useAppSelector((store) => store.postsReducer.searchedPosts);
   const paginationNumber = useAppSelector((store) => store.postsReducer.paginationNumber);
   const paginationPost = useAppSelector((store) => store.postsReducer.paginationPost);
   const comments = useAppSelector((store) => store.commentReducer.comments);
@@ -34,7 +33,7 @@ const PostList: FC<PostListProps> = () => {
     if (posts.length) {
       dispatch(setPaginationPostsActionCreator());
     }
-  }, [posts, paginationNumber]);
+  }, [searchedPosts, paginationNumber]);
 
   const cards = paginationPost.map((item) => (
     <Post
@@ -51,8 +50,9 @@ const PostList: FC<PostListProps> = () => {
 
   return (
     <>
+      <SearchPosts />
       {posts.length ? cards : <Spinner animation="border" variant="primary" className='position-absolute top-50 start-50 '/> }
-      <PaginationList array={posts} activeNumber={paginationNumber} />
+      <PaginationList array={searchedPosts} activeNumber={paginationNumber} />
     </>
   );
 };
