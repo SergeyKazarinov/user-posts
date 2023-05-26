@@ -1,6 +1,8 @@
 import {
   GET_ALL_COMMENT_ACTIONS,
   GET_POSTS_ACTIONS,
+  SET_PAGINATION_NUMBER,
+  SET_PAGINATION_POST,
   SET_POSTS_ACTIONS,
 } from 'shared';
 import { IPost } from 'types/post';
@@ -16,4 +18,13 @@ export const setPostsActionCreator = (data: IPost[]) => ({
 
 export const getAllCommentsActionCreator = () => ({
   type: GET_ALL_COMMENT_ACTIONS,
+});
+
+export const setPaginationPostsActionCreator = () => ({
+  type: SET_PAGINATION_POST,
+});
+
+export const setPaginationNumberActionCreator = (number: number) => ({
+  type: SET_PAGINATION_NUMBER,
+  payload: number,
 });

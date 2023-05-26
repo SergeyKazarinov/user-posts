@@ -1,6 +1,9 @@
 import { useAppDispatch, useAppSelector } from 'app/store/app-store';
-import { Post, getPostsActionCreator } from 'entities';
+import {
+  Post, getPostsActionCreator, setPaginationPostsActionCreator,
+} from 'entities';
 import { CommentButton } from 'entities/comments';
+import { PaginationList } from 'features/pagination-list';
 import { ToggleCommentButton } from 'features/toggle-comment-button';
 
 import { FC, useEffect } from 'react';
@@ -14,6 +17,8 @@ interface PostListProps {
 const PostList: FC<PostListProps> = () => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector((store) => store.postsReducer.posts);
+  const paginationNumber = useAppSelector((store) => store.postsReducer.paginationNumber);
+  const paginationPost = useAppSelector((store) => store.postsReducer.paginationPost);
   const comments = useAppSelector((store) => store.commentReducer.comments);
 
   const handelGetPosts = async () => {
@@ -25,7 +30,13 @@ const PostList: FC<PostListProps> = () => {
     handelGetPosts();
   }, []);
 
-  const cards = posts.map((item) => (
+  useEffect(() => {
+    if (posts.length) {
+      dispatch(setPaginationPostsActionCreator());
+    }
+  }, [posts, paginationNumber]);
+
+  const cards = paginationPost.map((item) => (
     <Post
       key={item.id}
       item={item}
@@ -41,6 +52,7 @@ const PostList: FC<PostListProps> = () => {
   return (
     <>
       {posts.length ? cards : <Spinner animation="border" variant="primary" className='position-absolute top-50 start-50 '/> }
+      <PaginationList array={posts} activeNumber={paginationNumber} />
     </>
   );
 };
