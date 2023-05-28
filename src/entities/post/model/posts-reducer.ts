@@ -13,6 +13,7 @@ import {
 import {
   IPost, TSortValues,
 } from 'types/post';
+import { TPostActions } from '../types/action-types';
 
 interface IInitialState {
   posts: IPost[];
@@ -34,39 +35,37 @@ const initialState: IInitialState = {
 
 export const postsReducer = (
   state = initialState,
-  {
-    type, posts, number, value, sortValue,
-  }: any,
-) => {
-  switch (type) {
+  action: TPostActions,
+): IInitialState => {
+  switch (action.type) {
     case SET_POSTS_ACTIONS: return {
-      ...state, posts, searchedPosts: posts, sortedPosts: posts,
+      ...state, posts: action.posts, searchedPosts: action.posts, sortedPosts: action.posts,
     };
 
     case SET_PAGINATION_POST: return {
       ...state,
-      paginationPost: getPaginationPost(posts, number),
+      paginationPost: getPaginationPost(action.posts, action.number),
     };
 
-    case SET_PAGINATION_NUMBER: return { ...state, paginationNumber: number };
+    case SET_PAGINATION_NUMBER: return { ...state, paginationNumber: action.number };
 
     case SEARCH_POSTS_ACTIONS: {
-      if (value === '') {
+      if (action.value === '') {
         return { ...state, searchedPosts: state.posts };
       }
-      return { ...state, searchedPosts: filterPosts<IPost>(state.posts, value, 'title') }; }
+      return { ...state, searchedPosts: filterPosts<IPost>(state.posts, action.value, 'title') }; }
 
     case SORT_VALUE_ACTIONS: {
-      return { ...state, sortValue };
+      return { ...state, sortValue: action.sortValue };
     }
 
     case SORT_POSTS_ACTIONS: {
       const { searchedPosts } = state;
 
-      if (value === DEFAULT) {
+      if (action.value === DEFAULT) {
         return { ...state, sortedPosts: searchedPosts };
       }
-      const newArr = sortElements<IPost>(searchedPosts, value, 'title');
+      const newArr = sortElements<IPost>(searchedPosts, action.value, 'title');
       return { ...state, sortedPosts: newArr };
     }
     default: return state;
