@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/app-store';
 import {
-  Post,
   getPostsActionCreator,
   setPaginationPostsActionCreator,
   sortPostActionCreator,
@@ -14,7 +13,7 @@ import { FC, useEffect } from 'react';
 import {
   Col, Row, Spinner,
 } from 'react-bootstrap';
-import { delay } from 'shared';
+import { Post, delay } from 'shared';
 
 const PostList: FC = () => {
   const dispatch = useAppDispatch();
