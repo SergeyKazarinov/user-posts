@@ -6,6 +6,7 @@ import Layout from './layouts/baseLayout';
 const MainPage = lazy(() => import('pages/main-page'));
 const PageNotFound = lazy(() => import('pages/page-note-found'));
 const AboutMePage = lazy(() => import('pages/about-me-page'));
+const UserId = lazy(() => import('widgets/user-id'));
 
 const AppRouter: FC = () => (
   <Suspense fallback={<Loader />}>
@@ -14,6 +15,7 @@ const AppRouter: FC = () => (
         <Route path="/" element={<MainPage />} />
         <Route path="/about-me" element={<AboutMePage />} />
       </Route>
+      <Route path='/users/:userId' element={<UserId />} />
       <Route path='*' element={<PageNotFound />} />
     </Routes>
   </Suspense>
