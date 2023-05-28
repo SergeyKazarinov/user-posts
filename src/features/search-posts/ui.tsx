@@ -11,19 +11,21 @@ const SearchPosts: FC<SearchPostsProps> = () => {
   const [value, setValue] = useState('');
   const dispatch = useAppDispatch();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    dispatch(searchPostActionCreator(e.target.value));
+  const handleSearchPosts = (string: string) => {
+    setValue(string);
+    dispatch(searchPostActionCreator(string));
     dispatch(setPaginationNumberActionCreator(1));
   };
 
-  const handleClearClick = () => {
-    setValue('');
-    dispatch(searchPostActionCreator(''));
-    dispatch(setPaginationNumberActionCreator(1));
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleSearchPosts(e.target.value);
+  };
+
+  const onClearClick = () => {
+    handleSearchPosts('');
   };
   return (
-    <SearchInput inputValue={value} onChange={handleChange} onClick={handleClearClick}/>
+    <SearchInput inputValue={value} onChange={onChange} onClick={onClearClick}/>
   );
 };
 

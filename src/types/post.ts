@@ -1,3 +1,5 @@
+import { ASC, DESC, DEFAULT } from 'shared';
+
 export interface IPost {
   userId: number;
   id: number;
@@ -12,3 +14,5 @@ export interface IComments {
   email: string;
   body: string;
 }
+
+export type TSortValues = typeof ASC | typeof DESC | typeof DEFAULT;

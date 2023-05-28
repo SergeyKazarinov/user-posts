@@ -1,6 +1,8 @@
-import { IPost } from 'types/post';
-
-export const filterPosts = (
-  posts: IPost[],
+export const filterPosts = <T>(
+  posts: T[],
   value: string,
-) => posts.filter((item) => item.title.includes(value));
+  field: keyof T,
+): T[] => posts.filter((item) => {
+    const val = item[field];
+    return String(val).toLowerCase().includes(value.toLowerCase());
+  });

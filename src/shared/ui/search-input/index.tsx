@@ -10,7 +10,7 @@ interface SearchInputProps {
 }
 
 const SearchInput: FC<SearchInputProps> = ({ inputValue, onChange, onClick }) => (
-  <Row className='w-75 mx-auto mt-3 flex-row align-items-center'>
+  <Row className='flex-row align-items-center'>
     <Col>
       <FloatingLabel
         controlId="floatingInput"
