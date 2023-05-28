@@ -1,5 +1,6 @@
 import { SET_COMMENT_ACTIONS } from 'shared';
 import { IComments } from 'types/post';
+import { TCommentActions } from '../types/action-types';
 
 interface IInitialState {
   comments: IComments[]
@@ -11,10 +12,10 @@ const initialState: IInitialState = {
 
 export const commentReducer = (
   state = initialState,
-  { type, payload }: { type: string, payload: IComments[] },
+  action: TCommentActions,
 ) => {
-  switch (type) {
-    case SET_COMMENT_ACTIONS: return { ...state, comments: payload };
+  switch (action.type) {
+    case SET_COMMENT_ACTIONS: return { ...state, comments: action.payload };
     default: return state;
   }
 };
