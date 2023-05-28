@@ -1,6 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
-import { GET_ALL_COMMENT_ACTIONS } from 'shared';
-import { getAllComments } from 'shared/api/posts';
+import { GET_ALL_COMMENT_ACTIONS, getAllComments } from 'shared';
 import { IComments } from 'types/post';
 import { setCommentActionCreator } from './action-creator';
 

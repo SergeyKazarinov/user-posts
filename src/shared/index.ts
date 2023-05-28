@@ -1,3 +1,5 @@
+export * from './api/posts';
+export * from './api/users';
 export * from './consts/action-types';
 export * from './consts/consts';
 export * from './consts/urls';

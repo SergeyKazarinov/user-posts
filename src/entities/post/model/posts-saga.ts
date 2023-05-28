@@ -1,6 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
-import { GET_POSTS_ACTIONS } from 'shared';
-import { getPosts } from 'shared/api/posts';
+import { GET_POSTS_ACTIONS, getPosts } from 'shared';
 import { IPost } from 'types/post';
 import { setPostsActionCreator } from './action-creator';
 
