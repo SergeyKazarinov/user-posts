@@ -1,7 +1,6 @@
 import { TOGGLE_BURGER_MENU } from 'shared';
+import { IToggleBurgerMenuAction } from '../types/action-types';
 
-const toggleBurgerMenuAction = () => ({
+export const toggleBurgerMenuAction = (): IToggleBurgerMenuAction => ({
   type: TOGGLE_BURGER_MENU,
 });
-
-export default toggleBurgerMenuAction;
