@@ -13,6 +13,8 @@ const PaginationList: FC<PaginationProps> = ({ array, activeNumber }) => {
   const dispatch = useAppDispatch();
 
   const handleChangePaginationItem = (number: number) => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     dispatch(setPaginationNumberActionCreator(number));
   };
 

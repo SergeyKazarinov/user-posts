@@ -1,3 +1,4 @@
-export * from './header';
+export * from './about-me';
 export * from './burger-menu';
+export * from './header';
 export * from './post-list';

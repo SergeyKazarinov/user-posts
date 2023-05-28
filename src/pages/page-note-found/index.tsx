@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import s from './page-note-found.module.scss';
 
 const PageNotFound: FC = () => {
-  const navigate = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
   const handleClick = () => {
-    navigate('/');
+    navigate(-1);
   };
 
   return (
