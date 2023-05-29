@@ -1,9 +1,7 @@
 import { FC } from 'react';
 import { PostList } from 'widgets';
 
-interface MainPageProps {}
-
-const MainPage: FC<MainPageProps> = () => (
+const MainPage: FC = () => (
   <section>
     <PostList />
   </section>

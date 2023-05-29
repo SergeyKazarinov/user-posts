@@ -4,11 +4,7 @@ import { ChangeEvent, FC } from 'react';
 import { SortInput } from 'shared';
 import { TSortValues } from 'types/post';
 
-interface SortPostsProps {
-
-}
-
-const SortPosts: FC<SortPostsProps> = () => {
+const SortPosts: FC = () => {
   const dispatch = useAppDispatch();
 
   const handleClick = (e: ChangeEvent<HTMLSelectElement>) => {

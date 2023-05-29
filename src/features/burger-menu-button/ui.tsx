@@ -3,11 +3,7 @@ import { FC } from 'react';
 import { Button } from 'react-bootstrap';
 import { TOGGLE_BURGER_MENU } from 'shared';
 
-interface BurgerMenuButtonProps {
-
-}
-
-const BurgerMenuButton: FC<BurgerMenuButtonProps> = () => {
+const BurgerMenuButton: FC = () => {
   const dispatch = useAppDispatch();
 
   const onClick = () => {

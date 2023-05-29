@@ -1,11 +1,7 @@
 import { FC } from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-interface AboutMeProps {
-
-}
-
-const AboutMe: FC<AboutMeProps> = () => (
+const AboutMe: FC = () => (
   <Card className='w-75 text-center mx-auto border-0'>
     <Card.Img src='../../../public/about-me.jpg' alt='Card background' style={{ filter: 'blur(200px) contrast(10%)' }}/>
     <Card.ImgOverlay>

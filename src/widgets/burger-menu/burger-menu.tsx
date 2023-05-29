@@ -6,11 +6,7 @@ import {
 } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 
-interface BurgerMenuProps {
-
-}
-
-const BurgerMenu: FC<BurgerMenuProps> = () => {
+const BurgerMenu: FC = () => {
   const isBurger = useAppSelector((store) => store.toggleBurgerMenuReducer.isBurger);
   const dispatch = useAppDispatch();
   const location = useLocation();

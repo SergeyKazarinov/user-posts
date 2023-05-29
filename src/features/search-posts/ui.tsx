@@ -3,11 +3,7 @@ import { searchPostActionCreator, setPaginationNumberActionCreator } from 'entit
 import { ChangeEvent, FC, useState } from 'react';
 import { SearchInput } from 'shared';
 
-interface SearchPostsProps {
-
-}
-
-const SearchPosts: FC<SearchPostsProps> = () => {
+const SearchPosts: FC = () => {
   const [value, setValue] = useState('');
   const dispatch = useAppDispatch();
 

@@ -2,11 +2,7 @@ import { FC } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-interface BackButtonProps {
-
-}
-
-const BackButton: FC<BackButtonProps> = () => {
+const BackButton: FC = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {

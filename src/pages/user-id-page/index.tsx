@@ -1,11 +1,7 @@
 import { FC } from 'react';
 import { UserId } from 'widgets';
 
-interface UserIdPageProps {
-
-}
-
-const UserIdPage: FC<UserIdPageProps> = () => (
+const UserIdPage: FC = () => (
   <section>
     <UserId />
   </section>

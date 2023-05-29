@@ -12,7 +12,7 @@ export const getPosts = async () => {
 
 export const getPostsByUserId = async (userId: string) => {
   try {
-    const res: AxiosResponse = await axios.get(`${BASE_URL}/postss?userId=${userId}`);
+    const res: AxiosResponse = await axios.get(`${BASE_URL}/posts?userId=${userId}`);
     return res.data;
   } catch (error: any) {
     return Promise.reject(error);

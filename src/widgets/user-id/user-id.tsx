@@ -9,11 +9,7 @@ import { Container, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { ErrorMessage, Post, delay } from 'shared';
 
-interface UserIdProps {
-
-}
-
-const UserId: FC<UserIdProps> = () => {
+const UserId: FC = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector((store) => store.userReducer.user);
   const posts = useAppSelector((store) => store.postsReducer.posts);

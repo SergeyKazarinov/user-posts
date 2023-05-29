@@ -4,11 +4,7 @@ import {
   Col, Container, Row,
 } from 'react-bootstrap';
 
-interface HeaderProps {
-
-}
-
-const Header: FC<HeaderProps> = () => (
+const Header: FC = () => (
   <header>
     <Container>
       <Row className='bg-secondary'>
