@@ -5,6 +5,7 @@ export * from './consts/consts';
 export * from './consts/urls';
 export * from './lib';
 export { default as Comment } from './ui/comment';
+export { default as ErrorMessage } from './ui/error-message';
 export { default as Loader } from './ui/loader';
 export { default as Post } from './ui/post';
 export { default as SearchInput } from './ui/search-input';

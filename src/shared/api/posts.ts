@@ -5,7 +5,7 @@ export const getPosts = async () => {
   try {
     const res: AxiosResponse = await axios.get(`${BASE_URL}/posts`);
     return res.data;
-  } catch (error: any) {
+  } catch (error) {
     return Promise.reject(error);
   }
 };
@@ -15,12 +15,7 @@ export const getPostsByUserId = async (userId: string) => {
     const res: AxiosResponse = await axios.get(`${BASE_URL}/posts?userId=${userId}`);
     return res.data;
   } catch (error: any) {
-    if (error.response) {
-      return console.log(error.response);
-    } if (error.request) {
-      return console.log(error.request);
-    }
-    return console.log('Error', error.message);
+    return Promise.reject(error);
   }
 };
 
@@ -29,11 +24,6 @@ export const getAllComments = async () => {
     const res: AxiosResponse = await axios.get(`${BASE_URL}/comments`);
     return res.data;
   } catch (error: any) {
-    if (error.response) {
-      return console.log(error.response);
-    } if (error.request) {
-      return console.log(error.request);
-    }
-    return console.log('Error', error.message);
+    return Promise.reject(error);
   }
 };

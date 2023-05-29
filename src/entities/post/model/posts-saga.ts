@@ -3,6 +3,8 @@ import {
   GET_POSTS_ACTIONS, GET_POST_BY_USER_ID, getPosts, getPostsByUserId,
 } from 'shared';
 import { IPost } from 'types/post';
+import { setErrorActionCreator } from 'entities/errors';
+import { AxiosError } from 'axios';
 import { setPostsActionCreator } from '../lib/action-creator';
 import { IGetPostsByUserIdActionCreator } from '../types/action-types';
 
@@ -11,13 +13,23 @@ function* handleGetPosts() {
     const data: IPost[] = yield getPosts();
     yield put(setPostsActionCreator(data));
   } catch (error) {
-    console.log(error);
+    if (error instanceof AxiosError) {
+      console.log(error.message);
+      yield put(setErrorActionCreator());
+    }
   }
 }
 
 function* handleGetPostsByUserId({ userId }: IGetPostsByUserIdActionCreator) {
-  const data: IPost[] = yield getPostsByUserId(userId);
-  yield put(setPostsActionCreator(data));
+  try {
+    const data: IPost[] = yield getPostsByUserId(userId);
+    yield put(setPostsActionCreator(data));
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      console.log(error.message);
+      yield put(setErrorActionCreator());
+    }
+  }
 }
 
 function* watchGetPostSaga() {

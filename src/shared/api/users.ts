@@ -6,11 +6,6 @@ export const getUsersById = async (userId: string) => {
     const res: AxiosResponse = await axios.get(`${BASE_URL}/users/${userId}`);
     return res.data;
   } catch (error: any) {
-    if (error.response) {
-      return console.log(error.response);
-    } if (error.request) {
-      return console.log(error.request);
-    }
-    return console.log('Error', error.message);
+    return Promise.reject(error);
   }
 };

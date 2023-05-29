@@ -14,8 +14,7 @@ import { FC, useEffect } from 'react';
 import {
   Col, Container, Row, Spinner,
 } from 'react-bootstrap';
-import { Post, delay } from 'shared';
-import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorMessage, Post, delay } from 'shared';
 
 const PostList: FC = () => {
   const dispatch = useAppDispatch();
@@ -26,6 +25,7 @@ const PostList: FC = () => {
   const paginationNumber = useAppSelector((store) => store.postsReducer.paginationNumber);
   const paginationPost = useAppSelector((store) => store.postsReducer.paginationPost);
   const comments = useAppSelector((store) => store.commentReducer.comments);
+  const errorMessage = useAppSelector((store) => store.errorReducer.errorMessage);
 
   const handelGetPosts = async () => {
     await delay(1000);
@@ -75,10 +75,15 @@ const PostList: FC = () => {
           </Col>
         </Row>
       </Container>
-      <ErrorBoundary fallback={<div>Something went wrong</div>}>
-        {posts.length ? cards : <Container className='text-center mt-5'><Spinner animation="border" variant="primary"/></Container> }
-        <PaginationList array={searchedPosts} activeNumber={paginationNumber} />
-      </ErrorBoundary>
+      {!errorMessage
+        ? (posts.length
+          ? cards
+          : <Container className='text-center mt-5'><Spinner animation="border" variant="primary"/></Container>
+        )
+        : <ErrorMessage message={errorMessage} />
+      }
+
+      <PaginationList array={searchedPosts} activeNumber={paginationNumber} />
     </>
   );
 };
