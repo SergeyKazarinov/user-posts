@@ -1,4 +1,6 @@
-import { GET_USERS_BY_ID, SET_USER_BY_USER_ID } from 'shared';
+import {
+  GET_USERS_BY_ID, SET_ERROR_USER_ACTION, SET_USER_BY_USER_ID,
+} from 'shared';
 import { IUser } from 'types/user';
 
 export interface IGetUserByUserId {
@@ -11,6 +13,11 @@ export interface ISetUserByUserId {
   user: IUser;
 }
 
+export interface ISetUserError {
+  readonly type: typeof SET_ERROR_USER_ACTION,
+}
+
 export type TUserActions =
   | IGetUserByUserId
-  | ISetUserByUserId;
+  | ISetUserByUserId
+  | ISetUserError;

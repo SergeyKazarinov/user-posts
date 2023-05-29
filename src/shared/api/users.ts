@@ -5,7 +5,7 @@ export const getUsersById = async (userId: string) => {
   try {
     const res: AxiosResponse = await axios.get(`${BASE_URL}/users/${userId}`);
     return res.data;
-  } catch (error: any) {
+  } catch (error) {
     return Promise.reject(error);
   }
 };

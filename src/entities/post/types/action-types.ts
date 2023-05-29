@@ -9,6 +9,7 @@ import {
   SORT_POSTS_ACTIONS,
   GET_POST_BY_USER_ID,
   SET_ERROR_POST_ACTION,
+  CLEAR_ERROR_POST_ACTION,
 } from 'shared';
 import { IPost, TSortValues } from 'types/post';
 
@@ -60,6 +61,10 @@ export interface ISetErrorPostActionCreator {
   readonly type: typeof SET_ERROR_POST_ACTION;
 }
 
+export interface IClearErrorPostActionCreator {
+  readonly type: typeof CLEAR_ERROR_POST_ACTION;
+}
+
 export type TPostActions =
   | IGetPostsActionCreator
   | IGetPostsByUserIdActionCreator
@@ -70,4 +75,5 @@ export type TPostActions =
   | ISearchPostActionCreator
   | ISortValueActionCreator
   | ISortPostActionCreator
-  | ISetErrorPostActionCreator;
+  | ISetErrorPostActionCreator
+  | IClearErrorPostActionCreator;

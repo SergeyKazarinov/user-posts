@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'app/store/app-store';
 import { CommentButton } from 'entities/comments';
-import { getPostsByUserIdActionCreator } from 'entities/post';
+import { clearErrorPostsActionCreator, getPostsByUserIdActionCreator } from 'entities/post';
 import { UserInfo, getUserByUserIdActionCreator } from 'entities/user';
 import { BackButton } from 'features/back-button';
 import { ToggleCommentButton } from 'features/toggle-comment-button';
@@ -17,8 +17,9 @@ const UserId: FC<UserIdProps> = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector((store) => store.userReducer.user);
   const posts = useAppSelector((store) => store.postsReducer.posts);
+  const postErrorMessage = useAppSelector((store) => store.postsReducer.postErrorMessage);
   const comments = useAppSelector((store) => store.commentReducer.comments);
-  const errorMessage = useAppSelector((store) => store.errorReducer.errorMessage);
+  const userErrorMessage = useAppSelector((store) => store.userReducer.userErrorMessage);
   const param = useParams<{ userId: string }>();
 
   const handleGetUserById = async () => {
@@ -31,6 +32,10 @@ const UserId: FC<UserIdProps> = () => {
   };
   useEffect(() => {
     handleGetUserById();
+
+    return () => {
+      dispatch(clearErrorPostsActionCreator());
+    };
   }, []);
 
   const cards = posts.map((item) => (
@@ -46,8 +51,8 @@ const UserId: FC<UserIdProps> = () => {
     />
   ));
 
-  if (errorMessage) {
-    return <ErrorMessage message={errorMessage} />;
+  if (userErrorMessage) {
+    return <ErrorMessage message={userErrorMessage} />;
   }
 
   return (
@@ -56,7 +61,14 @@ const UserId: FC<UserIdProps> = () => {
       <div className="h2 display-4 m-3 fw-bold position-relative ">
         Posts:
       </div>
-      {posts.length ? (cards) : <Container className='text-center'><Spinner animation="border" variant="primary"/></Container> }
+      {!postErrorMessage
+        ? (posts.length
+          ? (cards)
+          : <Container className='text-center'><Spinner animation="border" variant="primary"/></Container>
+        )
+        : <ErrorMessage message={postErrorMessage} />
+
+      }
 
       <BackButton />
     </Container>

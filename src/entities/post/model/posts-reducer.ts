@@ -1,4 +1,5 @@
 import {
+  CLEAR_ERROR_POST_ACTION,
   DEFAULT,
   SEARCH_POSTS_ACTIONS,
   SET_ERROR_POST_ACTION,
@@ -74,6 +75,10 @@ export const postsReducer = (
 
     case SET_ERROR_POST_ACTION: {
       return { ...state, postErrorMessage: 'Произошла ошибка запроса постов с сервера' };
+    }
+
+    case CLEAR_ERROR_POST_ACTION: {
+      return { ...state, postErrorMessage: '' };
     }
     default: return state;
   }

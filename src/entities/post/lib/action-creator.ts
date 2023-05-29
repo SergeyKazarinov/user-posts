@@ -1,9 +1,9 @@
 import {
+  CLEAR_ERROR_POST_ACTION,
   GET_ALL_COMMENT_ACTIONS,
   GET_POSTS_ACTIONS,
   GET_POST_BY_USER_ID,
   SEARCH_POSTS_ACTIONS,
-  SET_ERROR_ACTION,
   SET_ERROR_POST_ACTION,
   SET_PAGINATION_NUMBER,
   SET_PAGINATION_POST,
@@ -23,6 +23,7 @@ import {
   ISearchPostActionCreator,
   IGetPostsByUserIdActionCreator,
   ISetErrorPostActionCreator,
+  IClearErrorPostActionCreator,
 } from '../types/action-types';
 
 export const getPostsActionCreator = (): IGetPostsActionCreator => ({
@@ -76,4 +77,8 @@ export const sortPostActionCreator = (value: TSortValues): ISortPostActionCreato
 
 export const setErrorPostsActionCreator = (): ISetErrorPostActionCreator => ({
   type: SET_ERROR_POST_ACTION,
+});
+
+export const clearErrorPostsActionCreator = (): IClearErrorPostActionCreator => ({
+  type: CLEAR_ERROR_POST_ACTION,
 });
