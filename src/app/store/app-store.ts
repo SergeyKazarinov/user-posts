@@ -2,7 +2,6 @@ import { toggleBurgerMenuReducer } from 'entities/burger-menu';
 import { commentReducer } from 'entities/comments';
 import { postsReducer } from 'entities/post';
 import { userReducer } from 'entities/user';
-import { errorReducer } from 'entities/errors';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -16,7 +15,6 @@ const rootReducer = combineReducers({
   postsReducer,
   commentReducer,
   userReducer,
-  errorReducer,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));

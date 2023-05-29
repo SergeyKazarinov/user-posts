@@ -1,4 +1,9 @@
-import { GET_ALL_COMMENT_ACTIONS, SET_COMMENT_ACTIONS } from 'shared';
+import {
+  CLEAR_ERROR_COMMENT_ACTION,
+  GET_ALL_COMMENT_ACTIONS,
+  SET_COMMENT_ACTIONS,
+  SET_ERROR_COMMENT_ACTION,
+} from 'shared';
 import { IComments } from 'types/post';
 
 export interface IGetAllCommentsActionCreator {
@@ -10,6 +15,16 @@ export interface ISetCommentActionCreator {
   payload: IComments[];
 }
 
+export interface ISetCommentErrorActionCreator {
+  readonly type: typeof SET_ERROR_COMMENT_ACTION;
+}
+
+export interface IClearCommentErrorActionCreator {
+  readonly type: typeof CLEAR_ERROR_COMMENT_ACTION;
+}
+
 export type TCommentActions =
   | IGetAllCommentsActionCreator
-  | ISetCommentActionCreator;
+  | ISetCommentActionCreator
+  | ISetCommentErrorActionCreator
+  | IClearCommentErrorActionCreator;

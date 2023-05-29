@@ -1,5 +1,8 @@
 import { useAppDispatch } from 'app/store/app-store';
-import { getAllCommentsActionCreator } from 'entities/comments';
+import {
+  clearCommentErrorActionCreator,
+  getAllCommentsActionCreator,
+} from 'entities/comments';
 import { FC, useState } from 'react';
 import { Button, useAccordionButton } from 'react-bootstrap';
 
@@ -17,6 +20,7 @@ const ToggleCommentButton: FC<IToggleCommentButton> = ({ children, eventKey }) =
       dispatch(getAllCommentsActionCreator());
     }
     setIsComment((state) => !state);
+    dispatch(clearCommentErrorActionCreator());
   });
 
   return (
