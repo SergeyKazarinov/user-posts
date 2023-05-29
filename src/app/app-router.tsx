@@ -6,7 +6,7 @@ import Layout from './layouts/baseLayout';
 const MainPage = lazy(() => import('pages/main-page'));
 const PageNotFound = lazy(() => import('pages/page-note-found'));
 const AboutMePage = lazy(() => import('pages/about-me-page'));
-const UserId = lazy(() => import('widgets/user-id/user-id'));
+const UserId = lazy(() => import('pages/user-id-page'));
 
 const AppRouter: FC = () => (
   <Suspense fallback={<Loader />}>
