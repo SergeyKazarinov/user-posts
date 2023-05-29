@@ -1,7 +1,7 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import { GET_ALL_COMMENT_ACTIONS, getAllComments } from 'shared';
 import { IComments } from 'types/post';
-import { setCommentActionCreator } from './action-creator';
+import { setCommentActionCreator } from '../lib/action-creator';
 
 function* handleGetAllComments() {
   const data: IComments[] = yield getAllComments();

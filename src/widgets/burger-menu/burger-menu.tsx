@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/app-store';
-import { toggleBurgerMenuAction } from 'entities';
+import { toggleBurgerMenuAction } from 'entities/burger-menu';
 import { FC } from 'react';
 import {
   Col, Container, Image, Nav, Offcanvas, Row,

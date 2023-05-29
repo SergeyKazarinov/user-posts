@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/app-store';
-import { setPaginationNumberActionCreator } from 'entities';
+import { setPaginationNumberActionCreator } from 'entities/post';
 import { FC } from 'react';
 import { Pagination } from 'react-bootstrap';
 import { IPost } from 'types/post';

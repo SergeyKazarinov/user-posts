@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/store/app-store';
-import { getUserByUserIdActionCreator } from 'entities';
+import { getUserByUserIdActionCreator } from 'entities/user';
 import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { AboutMe } from 'widgets';

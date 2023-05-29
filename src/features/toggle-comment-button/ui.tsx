@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/app-store';
-import { getAllCommentsActionCreator } from 'entities';
+import { getAllCommentsActionCreator } from 'entities/comments';
 import { FC } from 'react';
 import { Button, useAccordionButton } from 'react-bootstrap';
 

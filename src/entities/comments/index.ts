@@ -1,4 +1,4 @@
-export { watchGetCommentSaga } from './model/posts-saga';
-
-export { commentReducer } from './model/comments-reducer';
+export * from './lib/action-creator';
+export * from './model/comments-reducer';
+export * from './model/posts-saga';
 export { default as CommentButton } from './ui';

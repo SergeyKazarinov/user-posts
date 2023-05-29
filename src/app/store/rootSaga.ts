@@ -1,4 +1,4 @@
-import { watchGetUsersById } from 'entities';
+import { watchGetUsersById } from 'entities/user';
 import { watchGetCommentSaga } from 'entities/comments';
 import { watchGetPostSaga } from 'entities/post';
 import { spawn } from 'redux-saga/effects';

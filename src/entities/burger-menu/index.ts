@@ -1,2 +1,2 @@
-export { toggleBurgerMenuReducer } from './model/burger-menu-reducer';
-export { toggleBurgerMenuAction } from './model/action-creator';
+export * from './model/burger-menu-reducer';
+export * from './lib/action-creator';

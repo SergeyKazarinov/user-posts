@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/app-store';
-import { searchPostActionCreator, setPaginationNumberActionCreator } from 'entities';
+import { searchPostActionCreator, setPaginationNumberActionCreator } from 'entities/post';
 import { ChangeEvent, FC, useState } from 'react';
 import { SearchInput } from 'shared';
 

@@ -1,7 +1,7 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import { GET_POSTS_ACTIONS, getPosts } from 'shared';
 import { IPost } from 'types/post';
-import { setPostsActionCreator } from './action-creator';
+import { setPostsActionCreator } from '../lib/action-creator';
 
 function* handleGetPosts() {
   const data: IPost[] = yield getPosts();

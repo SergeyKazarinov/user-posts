@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'app/store/app-store';
-import { sortValueActionCreator, sortPostActionCreator } from 'entities';
+import { sortValueActionCreator, sortPostActionCreator } from 'entities/post';
 import { ChangeEvent, FC } from 'react';
 import { SortInput } from 'shared';
 import { TSortValues } from 'types/post';
@@ -13,7 +13,7 @@ const SortPosts: FC<SortPostsProps> = () => {
 
   const handleClick = (e: ChangeEvent<HTMLSelectElement>) => {
     dispatch(sortValueActionCreator(e.target.value as TSortValues));
-    dispatch(sortPostActionCreator(e.target.value));
+    dispatch(sortPostActionCreator(e.target.value as TSortValues));
   };
 
   return (

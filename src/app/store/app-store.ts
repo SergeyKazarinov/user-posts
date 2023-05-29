@@ -1,6 +1,7 @@
-import {
-  postsReducer, toggleBurgerMenuReducer, commentReducer, userReducer,
-} from 'entities';
+import { toggleBurgerMenuReducer } from 'entities/burger-menu';
+import { commentReducer } from 'entities/comments';
+import { postsReducer } from 'entities/post';
+import { userReducer } from 'entities/user';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';

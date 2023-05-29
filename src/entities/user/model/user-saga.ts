@@ -2,7 +2,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 import { GET_USERS_BY_ID, getUsersById } from 'shared';
 import { IUser } from 'types/user';
 import { IGetUserByUserId } from '../types/action-types';
-import { setUserByUserIdActionCreator } from './action-creator';
+import { setUserByUserIdActionCreator } from '../lib/action-creator';
 
 function* handleGetUsersById({ userId }: IGetUserByUserId) {
   const data: IUser = yield getUsersById(userId);

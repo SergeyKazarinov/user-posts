@@ -3,7 +3,7 @@ import {
   getPostsActionCreator,
   setPaginationPostsActionCreator,
   sortPostActionCreator,
-} from 'entities';
+} from 'entities/post';
 import { CommentButton } from 'entities/comments';
 import { PaginationList } from 'features/pagination-list';
 import { SearchPosts } from 'features/search-posts';
