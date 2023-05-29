@@ -20,22 +20,38 @@ const PaginationList: FC<PaginationProps> = ({ array, activeNumber }) => {
 
   const numberPagination = Math.ceil(array.length / 10);
 
-  const items = [];
-  for (let number = 1; number <= numberPagination; number += 1) {
-    items.push(
-      <Pagination.Item
-        key={number}
-        active={number === activeNumber}
-        onClick={() => handleChangePaginationItem(number)}
-      >
-        {number}
-      </Pagination.Item>,
-    );
-  }
-
   return (
     <Pagination className='flex-row justify-content-center mt-3' size='lg'>
-      {items}
+      {activeNumber > 2 && <Pagination.First onClick={() => handleChangePaginationItem(1)}/>}
+
+      {activeNumber > 1 && (
+        <Pagination.Item
+          key={activeNumber - 1}
+          onClick={() => handleChangePaginationItem(activeNumber - 1)}
+        >
+          {activeNumber - 1}
+        </Pagination.Item>
+      )}
+
+      <Pagination.Item
+        active={!!activeNumber}
+        onClick={() => handleChangePaginationItem(activeNumber)}
+      >
+        {activeNumber}
+      </Pagination.Item>,
+
+      {activeNumber < numberPagination && (
+        <Pagination.Item
+          key={activeNumber + 1}
+          onClick={() => handleChangePaginationItem(activeNumber + 1)}
+        >
+          {activeNumber + 1}
+        </Pagination.Item>
+      )}
+
+      {activeNumber < numberPagination - 1 && (
+        <Pagination.Last onClick={() => handleChangePaginationItem(numberPagination)}/>
+      )}
     </Pagination>
   );
 };
