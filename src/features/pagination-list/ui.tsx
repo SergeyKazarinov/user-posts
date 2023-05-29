@@ -21,38 +21,42 @@ const PaginationList: FC<PaginationProps> = ({ array, activeNumber }) => {
   const numberPagination = Math.ceil(array.length / 10);
 
   return (
-    <Pagination className='flex-row justify-content-center mt-3' size='lg'>
-      {activeNumber > 2 && <Pagination.First onClick={() => handleChangePaginationItem(1)}/>}
+    <>
+      {numberPagination > 1 && (
+        <Pagination className='flex-row justify-content-center mt-3' size='lg'>
+          {activeNumber > 2 && <Pagination.First onClick={() => handleChangePaginationItem(1)}/>}
 
-      {activeNumber > 1 && (
-        <Pagination.Item
-          key={activeNumber - 1}
-          onClick={() => handleChangePaginationItem(activeNumber - 1)}
-        >
-          {activeNumber - 1}
-        </Pagination.Item>
+          {activeNumber > 1 && (
+            <Pagination.Item
+              key={activeNumber - 1}
+              onClick={() => handleChangePaginationItem(activeNumber - 1)}
+            >
+              {activeNumber - 1}
+            </Pagination.Item>
+          )}
+
+          <Pagination.Item
+            active={!!activeNumber}
+            onClick={() => handleChangePaginationItem(activeNumber)}
+          >
+            {activeNumber}
+          </Pagination.Item>,
+
+          {activeNumber < numberPagination && (
+            <Pagination.Item
+              key={activeNumber + 1}
+              onClick={() => handleChangePaginationItem(activeNumber + 1)}
+            >
+              {activeNumber + 1}
+            </Pagination.Item>
+          )}
+
+          {activeNumber < numberPagination - 1 && (
+            <Pagination.Last onClick={() => handleChangePaginationItem(numberPagination)}/>
+          )}
+        </Pagination>
       )}
-
-      <Pagination.Item
-        active={!!activeNumber}
-        onClick={() => handleChangePaginationItem(activeNumber)}
-      >
-        {activeNumber}
-      </Pagination.Item>,
-
-      {activeNumber < numberPagination && (
-        <Pagination.Item
-          key={activeNumber + 1}
-          onClick={() => handleChangePaginationItem(activeNumber + 1)}
-        >
-          {activeNumber + 1}
-        </Pagination.Item>
-      )}
-
-      {activeNumber < numberPagination - 1 && (
-        <Pagination.Last onClick={() => handleChangePaginationItem(numberPagination)}/>
-      )}
-    </Pagination>
+    </>
   );
 };
 
