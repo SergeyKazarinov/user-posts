@@ -15,7 +15,7 @@ const Post: FC<PostProps> = ({ item, commentButton }) => (
     <Card className='mt-4'>
       <Row>
         <Col md={1} xs={1}>
-          <Link to={'/users/1'}>
+          <Link to={'/users/3'}>
             <Image src='../../../public/placeholder.jpg' className='w-100' roundedCircle />
           </Link>
         </Col>
@@ -26,7 +26,6 @@ const Post: FC<PostProps> = ({ item, commentButton }) => (
         </Col>
       </Row>
     </Card>
-
   </Container>
 );
 

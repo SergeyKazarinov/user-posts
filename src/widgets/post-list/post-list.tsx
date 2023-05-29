@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from 'app/store/app-store';
 import {
   getPostsActionCreator,
   setPaginationPostsActionCreator,
+  setPostsActionCreator,
   sortPostActionCreator,
 } from 'entities/post';
 import { CommentButton } from 'entities/comments';
@@ -11,7 +12,7 @@ import { SortPosts } from 'features/sort-posts';
 import { ToggleCommentButton } from 'features/toggle-comment-button';
 import { FC, useEffect } from 'react';
 import {
-  Col, Row, Spinner,
+  Col, Container, Row, Spinner,
 } from 'react-bootstrap';
 import { Post, delay } from 'shared';
 
@@ -32,6 +33,10 @@ const PostList: FC = () => {
 
   useEffect(() => {
     handelGetPosts();
+
+    return () => {
+      dispatch(setPostsActionCreator([]));
+    };
   }, []);
 
   useEffect(() => {
@@ -67,7 +72,7 @@ const PostList: FC = () => {
           <SortPosts />
         </Col>
       </Row>
-      {posts.length ? cards : <Spinner animation="border" variant="primary" className='position-absolute top-50 start-50 '/> }
+      {posts.length ? cards : <Container className='text-center mt-5'><Spinner animation="border" variant="primary"/></Container> }
       <PaginationList array={searchedPosts} activeNumber={paginationNumber} />
     </>
   );
