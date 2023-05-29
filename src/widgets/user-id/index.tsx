@@ -5,9 +5,10 @@ import { getUserByUserIdActionCreator } from 'entities/user';
 import { ToggleCommentButton } from 'features/toggle-comment-button';
 import { FC, useEffect } from 'react';
 import {
+  Button,
   Card, Container, ListGroup, Spinner,
 } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Post, delay } from 'shared';
 
 interface UserIdProps {
@@ -20,6 +21,7 @@ const UserId: FC<UserIdProps> = () => {
   const posts = useAppSelector((store) => store.postsReducer.posts);
   const comments = useAppSelector((store) => store.commentReducer.comments);
   const param = useParams<{ userId: string }>();
+  const navigate = useNavigate();
 
   const handleGetUserById = async () => {
     if (param.userId) {
@@ -45,6 +47,10 @@ const UserId: FC<UserIdProps> = () => {
     />
   ));
 
+  const handleClick = () => {
+    navigate(-1);
+  };
+
   return (
     <Container>
       <Card className='mt-4'>
@@ -65,6 +71,8 @@ const UserId: FC<UserIdProps> = () => {
         Posts:
       </div>
       {posts.length ? cards : <Container className='text-center'><Spinner animation="border" variant="primary"/></Container> }
+
+      <Button className='position-fixed end-0 bottom-0 m-5' size='lg' onClick={handleClick}>Back</Button>
     </Container>
   );
 };
