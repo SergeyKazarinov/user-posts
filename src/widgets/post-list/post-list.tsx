@@ -64,14 +64,16 @@ const PostList: FC = () => {
 
   return (
     <>
-      <Row className='w-75 mx-auto mt-3 flex-row align-items-center'>
-        <Col>
-          <SearchPosts />
-        </Col>
-        <Col md='auto' className='p-2  '>
-          <SortPosts />
-        </Col>
-      </Row>
+      <Container>
+        <Row className=' mx-auto mt-3 flex-row align-items-center'>
+          <Col>
+            <SearchPosts />
+          </Col>
+          <Col md='auto' className='p-2  '>
+            <SortPosts />
+          </Col>
+        </Row>
+      </Container>
       {posts.length ? cards : <Container className='text-center mt-5'><Spinner animation="border" variant="primary"/></Container> }
       <PaginationList array={searchedPosts} activeNumber={paginationNumber} />
     </>
