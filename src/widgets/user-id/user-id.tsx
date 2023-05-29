@@ -2,13 +2,13 @@ import { useAppDispatch, useAppSelector } from 'app/store/app-store';
 import { CommentButton } from 'entities/comments';
 import { getPostsByUserIdActionCreator } from 'entities/post';
 import { getUserByUserIdActionCreator } from 'entities/user';
+import { BackButton } from 'features/back-button';
 import { ToggleCommentButton } from 'features/toggle-comment-button';
 import { FC, useEffect } from 'react';
 import {
-  Button,
   Card, Container, ListGroup, Spinner,
 } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Post, delay } from 'shared';
 
 interface UserIdProps {
@@ -21,7 +21,6 @@ const UserId: FC<UserIdProps> = () => {
   const posts = useAppSelector((store) => store.postsReducer.posts);
   const comments = useAppSelector((store) => store.commentReducer.comments);
   const param = useParams<{ userId: string }>();
-  const navigate = useNavigate();
 
   const handleGetUserById = async () => {
     if (param.userId) {
@@ -47,10 +46,6 @@ const UserId: FC<UserIdProps> = () => {
     />
   ));
 
-  const handleClick = () => {
-    navigate(-1);
-  };
-
   return (
     <Container>
       <Card className='mt-4'>
@@ -72,7 +67,7 @@ const UserId: FC<UserIdProps> = () => {
       </div>
       {posts.length ? cards : <Container className='text-center'><Spinner animation="border" variant="primary"/></Container> }
 
-      <Button className='position-fixed end-0 bottom-0 m-5' size='lg' onClick={handleClick}>Back</Button>
+      <BackButton />
     </Container>
   );
 };
