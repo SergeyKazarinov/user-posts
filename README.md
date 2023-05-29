@@ -16,7 +16,7 @@
 
 Приложение имеет [FSD архитектуру](https://feature-sliced.design/)
 
-[Ссылка на сайт](https://calculator-navy-seven.vercel.app/)
+[Ссылка на сайт](https://user-posts-five.vercel.app/)
 
 
 ## Stacks:

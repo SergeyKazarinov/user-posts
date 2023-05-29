@@ -5,6 +5,7 @@ import {
   Col, Container, Image, Nav, Offcanvas, Row,
 } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
+import image from 'assets/placeholder.jpg';
 
 const BurgerMenu: FC = () => {
   const isBurger = useAppSelector((store) => store.toggleBurgerMenuReducer.isBurger);
@@ -24,7 +25,7 @@ const BurgerMenu: FC = () => {
         <Container className='m-2  text-center'>
           <Row>
             <Col>
-              <Image src='../../../public/placeholder.jpg' className='w-50' roundedCircle />
+              <Image src={image} className='w-50' roundedCircle />
             </Col>
           </Row>
           <Row className='m-2'>
