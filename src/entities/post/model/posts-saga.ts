@@ -7,8 +7,12 @@ import { setPostsActionCreator } from '../lib/action-creator';
 import { IGetPostsByUserIdActionCreator } from '../types/action-types';
 
 function* handleGetPosts() {
-  const data: IPost[] = yield getPosts();
-  yield put(setPostsActionCreator(data));
+  try {
+    const data: IPost[] = yield getPosts();
+    yield put(setPostsActionCreator(data));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function* handleGetPostsByUserId({ userId }: IGetPostsByUserIdActionCreator) {

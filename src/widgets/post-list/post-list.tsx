@@ -15,6 +15,7 @@ import {
   Col, Container, Row, Spinner,
 } from 'react-bootstrap';
 import { Post, delay } from 'shared';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const PostList: FC = () => {
   const dispatch = useAppDispatch();
@@ -74,8 +75,10 @@ const PostList: FC = () => {
           </Col>
         </Row>
       </Container>
-      {posts.length ? cards : <Container className='text-center mt-5'><Spinner animation="border" variant="primary"/></Container> }
-      <PaginationList array={searchedPosts} activeNumber={paginationNumber} />
+      <ErrorBoundary fallback={<div>Something went wrong</div>}>
+        {posts.length ? cards : <Container className='text-center mt-5'><Spinner animation="border" variant="primary"/></Container> }
+        <PaginationList array={searchedPosts} activeNumber={paginationNumber} />
+      </ErrorBoundary>
     </>
   );
 };

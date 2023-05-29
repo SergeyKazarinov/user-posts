@@ -1,5 +1,7 @@
 import { FC, ReactNode } from 'react';
-import { Accordion, Card, Container, Spinner } from 'react-bootstrap';
+import {
+  Accordion, Card, Container, Spinner,
+} from 'react-bootstrap';
 import { Comment } from 'shared';
 import { IComments } from 'types/post';
 
