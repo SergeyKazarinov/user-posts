@@ -1,6 +1,7 @@
 import {
   GET_ALL_COMMENT_ACTIONS,
   GET_POSTS_ACTIONS,
+  GET_POST_BY_USER_ID,
   SEARCH_POSTS_ACTIONS,
   SET_PAGINATION_NUMBER,
   SET_PAGINATION_POST,
@@ -18,10 +19,16 @@ import {
   ISortValueActionCreator,
   ISortPostActionCreator,
   ISearchPostActionCreator,
+  IGetPostsByUserIdActionCreator,
 } from '../types/action-types';
 
 export const getPostsActionCreator = (): IGetPostsActionCreator => ({
   type: GET_POSTS_ACTIONS,
+});
+
+export const getPostsByUserIdActionCreator = (userId: string): IGetPostsByUserIdActionCreator => ({
+  type: GET_POST_BY_USER_ID,
+  userId,
 });
 
 export const setPostsActionCreator = (posts: IPost[]): ISetPostsActionCreator => ({

@@ -7,20 +7,26 @@ import {
   SEARCH_POSTS_ACTIONS,
   SORT_VALUE_ACTIONS,
   SORT_POSTS_ACTIONS,
+  GET_POST_BY_USER_ID,
 } from 'shared';
 import { IPost, TSortValues } from 'types/post';
 
 export interface IGetPostsActionCreator {
-  readonly type: typeof GET_POSTS_ACTIONS
+  readonly type: typeof GET_POSTS_ACTIONS;
+}
+
+export interface IGetPostsByUserIdActionCreator {
+  readonly type: typeof GET_POST_BY_USER_ID;
+  userId: string;
 }
 
 export interface ISetPostsActionCreator {
-  readonly type: typeof SET_POSTS_ACTIONS
-  posts: IPost[]
+  readonly type: typeof SET_POSTS_ACTIONS;
+  posts: IPost[];
 }
 
 export interface IGetAllCommentsActionCreator {
-  readonly type: typeof GET_ALL_COMMENT_ACTIONS
+  readonly type: typeof GET_ALL_COMMENT_ACTIONS;
 }
 
 export interface ISetPaginationPostsActionCreator {
@@ -51,6 +57,7 @@ export interface ISortPostActionCreator {
 
 export type TPostActions =
   | IGetPostsActionCreator
+  | IGetPostsByUserIdActionCreator
   | ISetPostsActionCreator
   | IGetAllCommentsActionCreator
   | ISetPaginationPostsActionCreator
