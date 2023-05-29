@@ -4,6 +4,7 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { IPost } from 'types/post';
+import image from 'assets/placeholder.jpg';
 
 interface PostProps {
   item: IPost
@@ -16,7 +17,7 @@ const Post: FC<PostProps> = ({ item, commentButton }) => (
       <Row>
         <Col md={1} xs={1}>
           <Link to={'/users/3'}>
-            <Image src='../../../public/placeholder.jpg' className='w-100' roundedCircle />
+            <Image src={image} className='w-100' roundedCircle />
           </Link>
         </Col>
         <Col>
