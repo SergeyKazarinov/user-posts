@@ -25,7 +25,7 @@ const PostList: FC = () => {
   const paginationNumber = useAppSelector((store) => store.postsReducer.paginationNumber);
   const paginationPost = useAppSelector((store) => store.postsReducer.paginationPost);
   const comments = useAppSelector((store) => store.commentReducer.comments);
-  const errorMessage = useAppSelector((store) => store.errorReducer.errorMessage);
+  const postErrorMessage = useAppSelector((store) => store.postsReducer.postErrorMessage);
 
   const handelGetPosts = async () => {
     await delay(1000);
@@ -75,12 +75,12 @@ const PostList: FC = () => {
           </Col>
         </Row>
       </Container>
-      {!errorMessage
+      {!postErrorMessage
         ? (posts.length
           ? cards
           : <Container className='text-center mt-5'><Spinner animation="border" variant="primary"/></Container>
         )
-        : <ErrorMessage message={errorMessage} />
+        : <ErrorMessage message={postErrorMessage} />
       }
 
       <PaginationList array={searchedPosts} activeNumber={paginationNumber} />

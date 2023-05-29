@@ -1,6 +1,7 @@
 import {
   DEFAULT,
   SEARCH_POSTS_ACTIONS,
+  SET_ERROR_POST_ACTION,
   SET_PAGINATION_NUMBER,
   SET_PAGINATION_POST,
   SET_POSTS_ACTIONS,
@@ -22,6 +23,7 @@ interface IInitialState {
   sortedPosts: IPost[];
   paginationNumber: number;
   sortValue: TSortValues;
+  postErrorMessage: string;
 }
 
 const initialState: IInitialState = {
@@ -31,6 +33,7 @@ const initialState: IInitialState = {
   sortedPosts: [],
   paginationNumber: 1,
   sortValue: DEFAULT,
+  postErrorMessage: '',
 };
 
 export const postsReducer = (
@@ -67,6 +70,10 @@ export const postsReducer = (
       }
       const newArr = sortElements<IPost>(searchedPosts, action.value, 'title');
       return { ...state, sortedPosts: newArr };
+    }
+
+    case SET_ERROR_POST_ACTION: {
+      return { ...state, postErrorMessage: 'Произошла ошибка запроса постов с сервера' };
     }
     default: return state;
   }

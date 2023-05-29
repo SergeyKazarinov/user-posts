@@ -1,11 +1,10 @@
+import { AxiosError } from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 import {
   GET_POSTS_ACTIONS, GET_POST_BY_USER_ID, getPosts, getPostsByUserId,
 } from 'shared';
 import { IPost } from 'types/post';
-import { setErrorActionCreator } from 'entities/errors';
-import { AxiosError } from 'axios';
-import { setPostsActionCreator } from '../lib/action-creator';
+import { setErrorPostsActionCreator, setPostsActionCreator } from '../lib/action-creator';
 import { IGetPostsByUserIdActionCreator } from '../types/action-types';
 
 function* handleGetPosts() {
@@ -14,8 +13,8 @@ function* handleGetPosts() {
     yield put(setPostsActionCreator(data));
   } catch (error) {
     if (error instanceof AxiosError) {
-      console.log(error.message);
-      yield put(setErrorActionCreator());
+      console.log(error);
+      yield put(setErrorPostsActionCreator());
     }
   }
 }
@@ -26,8 +25,8 @@ function* handleGetPostsByUserId({ userId }: IGetPostsByUserIdActionCreator) {
     yield put(setPostsActionCreator(data));
   } catch (error) {
     if (error instanceof AxiosError) {
-      console.log(error.message);
-      yield put(setErrorActionCreator());
+      console.log(error);
+      yield put(setErrorPostsActionCreator());
     }
   }
 }
