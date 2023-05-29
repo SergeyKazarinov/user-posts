@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Accordion, Card } from 'react-bootstrap';
+import { Accordion, Card, Container, Spinner } from 'react-bootstrap';
 import { Comment } from 'shared';
 import { IComments } from 'types/post';
 
@@ -20,7 +20,9 @@ const CommentButton: FC<CommentButtonProps> = ({ postId, comments, commentButton
           {commentButton}
         </Card.Header>
         <Accordion.Collapse eventKey="0">
-          <Card.Body>{data}</Card.Body>
+          <Card.Body>
+            {data.length ? data : <Container className='text-center mt-5'><Spinner animation="border" variant="primary"/></Container> }
+          </Card.Body>
         </Accordion.Collapse>
       </Card>
     </Accordion>

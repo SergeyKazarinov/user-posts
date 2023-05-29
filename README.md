@@ -18,6 +18,18 @@
 
 [Ссылка на сайт](https://calculator-navy-seven.vercel.app/)
 
+
+## Stacks:
+
+- TypeScript
+- React
+- React-Bootstrap
+- React-Router
+- Redux
+- Redux-Saga
+- Axios
+- Eslint
+
 ## Быстрый старт
 
 <br />
@@ -43,13 +55,3 @@ npm run dev
 
 4. Открыть в браузере: http://127.0.0.1:5173/
 
-## Stacks:
-
-- TypeScript
-- React
-- React-Bootstrap
-- React-Router
-- Redux
-- Redux-Saga
-- Axios
-- Eslint

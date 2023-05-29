@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'app/store/app-store';
 import { getAllCommentsActionCreator } from 'entities/comments';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Button, useAccordionButton } from 'react-bootstrap';
 
 interface IToggleCommentButton {
@@ -9,9 +9,14 @@ interface IToggleCommentButton {
 }
 
 const ToggleCommentButton: FC<IToggleCommentButton> = ({ children, eventKey }) => {
+  const [isComment, setIsComment] = useState(false);
+
   const dispatch = useAppDispatch();
   const decoratedOnClick = useAccordionButton(eventKey, () => {
-    dispatch(getAllCommentsActionCreator());
+    if (!isComment) {
+      dispatch(getAllCommentsActionCreator());
+    }
+    setIsComment((state) => !state);
   });
 
   return (
