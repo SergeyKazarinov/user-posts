@@ -7,7 +7,7 @@ import { ToggleCommentButton } from 'features/toggle-comment-button';
 import { FC, useEffect } from 'react';
 import { Container, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { Post, delay } from 'shared';
+import { ErrorMessage, Post, delay } from 'shared';
 
 interface UserIdProps {
 
@@ -18,6 +18,7 @@ const UserId: FC<UserIdProps> = () => {
   const user = useAppSelector((store) => store.userReducer.user);
   const posts = useAppSelector((store) => store.postsReducer.posts);
   const comments = useAppSelector((store) => store.commentReducer.comments);
+  const errorMessage = useAppSelector((store) => store.errorReducer.errorMessage);
   const param = useParams<{ userId: string }>();
 
   const handleGetUserById = async () => {
@@ -44,6 +45,10 @@ const UserId: FC<UserIdProps> = () => {
       }
     />
   ));
+
+  if (errorMessage) {
+    return <ErrorMessage message={errorMessage} />;
+  }
 
   return (
     <Container>
