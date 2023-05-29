@@ -40,7 +40,7 @@ const UserId: FC<UserIdProps> = () => {
         <CommentButton
           postId={item.id}
           comments={comments}
-          commentButton={ <ToggleCommentButton eventKey='0'>Комментарии</ToggleCommentButton>}/>
+          commentButton={ <ToggleCommentButton eventKey='0'>Comments</ToggleCommentButton>}/>
       }
     />
   ));
