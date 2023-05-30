@@ -12,8 +12,8 @@ interface PostProps {
 }
 
 const Post: FC<PostProps> = ({ item, commentButton }) => (
-  <Container >
-    <Card className='mt-4'>
+  <Container>
+    <Card className='mt-4 p-3'>
       <Row>
         <Col md={1} xs={1}>
           <Link to={'/users/3'}>

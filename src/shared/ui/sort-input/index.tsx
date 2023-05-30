@@ -8,7 +8,7 @@ interface SortInputProps {
 
 const SortInput: FC<SortInputProps> = ({ onClick }) => (
   <Row className='flex-row align-items-center'>
-    <Col md='auto' className='ps-5'>
+    <Col md='auto' className='ps-md-5'>
       <Form.Label htmlFor="inputSort">Сортировка</Form.Label>
     </Col>
     <Col md='auto' className='p-0'>

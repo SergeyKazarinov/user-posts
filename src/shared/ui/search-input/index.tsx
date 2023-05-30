@@ -1,6 +1,6 @@
 import { ChangeEvent, FC } from 'react';
 import {
-  Row, Col, FloatingLabel, Form, CloseButton,
+  Row, Col, FloatingLabel, Form, CloseButton, Container,
 } from 'react-bootstrap';
 
 interface SearchInputProps {
@@ -10,19 +10,21 @@ interface SearchInputProps {
 }
 
 const SearchInput: FC<SearchInputProps> = ({ inputValue, onChange, onClick }) => (
-  <Row className='flex-row align-items-center'>
-    <Col>
-      <FloatingLabel
-        controlId="floatingInput"
-        label="Search Post"
-      >
-        <Form.Control type='text' placeholder="Поиск" value={inputValue} onChange={onChange}/>
-      </FloatingLabel>
-    </Col>
-    <Col md='auto' className='p-0'>
-      <CloseButton onClick={onClick} />
-    </Col>
-  </Row>
+  <Container fluid='true'>
+    <Row className='align-items-center flex-nowrap w-100'>
+      <Col className='' sm='10' xs='10'>
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Search Post"
+        >
+          <Form.Control type='text' placeholder="Search" value={inputValue} onChange={onChange} />
+        </FloatingLabel>
+      </Col>
+      <Col className='p-0'>
+        <CloseButton onClick={onClick} />
+      </Col>
+    </Row>
+  </Container>
 );
 
 export default SearchInput;
